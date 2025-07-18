@@ -6,6 +6,7 @@
 A post-install script that transforms a fresh Alpine Linux system into a modern GNOME desktop — complete with audio, Bluetooth, Flatpak, and GUI-based network management.
 
 > ⚠️ This is intended to be run **after completing `setup-alpine`** on a new Alpine installation.
+
 > 🔒 **You must run all scripts as root.**
 
 ---
