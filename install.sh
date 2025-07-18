@@ -16,9 +16,6 @@ if ! grep -q "/community" /etc/apk/repositories; then
   apk update
 fi
 
-echo "[*] Installing GPU drivers and firmware..."
-apk add mesa-dri-gallium mesa-vulkan-drivers linux-firmware
-
 # Auto-run alpine-desktop gnome if GNOME is not installed
 if ! command -v gnome-shell >/dev/null 2>&1; then
   echo "[*] GNOME not detected — installing via alpine-desktop..."
