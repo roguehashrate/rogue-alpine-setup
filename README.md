@@ -94,9 +94,3 @@ You’ll be asked whether to install:
 ## 📄 License
 
 MIT License — see `LICENSE` file.
-
----
-
-## 🙌 Credits
-
-Built for those who want a **minimal Alpine Linux base** with the comfort of a **modern GNOME desktop**.
