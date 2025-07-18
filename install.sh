@@ -9,13 +9,24 @@ fi
 echo "[*] Updating package index..."
 apk update
 
-# Auto-run alpine-desktop gnome if GNOME is not yet installed
+# Auto-run alpine-desktop gnome if GNOME is not installed
 if ! command -v gnome-shell >/dev/null 2>&1; then
   echo "[*] GNOME not detected — installing via alpine-desktop..."
-  setup-desktop gnome
+  alpine-desktop gnome
 else
-  echo "[*] GNOME is already installed — skipping alpine-desktop."
+  echo "[*] GNOME already installed — skipping alpine-desktop."
 fi
+
+apk del -q firefox epiphany || echo "[!] Some packages may not have been installed — skipping."
+
+echo "[*] Installing Flatpak and GNOME integration..."
+apk add flatpak xdg-desktop-portal xdg-desktop-portal-gtk \
+        gnome-software gnome-software-plugin-flatpak
+
+mkdir -p /var/lib/flatpak
+
+echo "[*] Adding Flathub remote..."
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 echo "[*] Installing PipeWire and Bluetooth support..."
 apk add pipewire pipewire-alsa pipewire-pulse wireplumber \
@@ -24,18 +35,11 @@ apk add pipewire pipewire-alsa pipewire-pulse wireplumber \
 rc-update add bluetooth
 rc-service bluetooth start
 
-echo "[*] Installing Flatpak and GNOME integration..."
-apk add flatpak xdg-desktop-portal xdg-desktop-portal-gtk \
-        gnome-software gnome-software-plugin-flatpak
-
-echo "[*] Setting up Flatpak and Flathub remote..."
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-
 # Optional Web Browser
 echo
 echo "[*] Optional: Install Web Browser?"
-echo "1) Firefox"
-echo "2) Brave"
+echo "1) Firefox (Flatpak)"
+echo "2) Brave (Flatpak)"
 echo "3) None"
 printf "Enter choice [1-3]: "
 read opt
@@ -97,5 +101,5 @@ case "$opt" in
 esac
 
 echo
-echo "[✓] All done! You can now reboot into a fully working GNOME desktop with audio, Bluetooth, and Flatpak support."
+echo "[✓] Setup complete! Reboot to your GNOME environment."
 
