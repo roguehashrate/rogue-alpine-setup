@@ -12,7 +12,7 @@ apk update
 # Auto-run alpine-desktop gnome if GNOME is not yet installed
 if ! command -v gnome-shell >/dev/null 2>&1; then
   echo "[*] GNOME not detected — installing via alpine-desktop..."
-  alpine-desktop gnome
+  setup-desktop gnome
 else
   echo "[*] GNOME is already installed — skipping alpine-desktop."
 fi
