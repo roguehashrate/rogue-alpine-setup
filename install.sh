@@ -6,6 +6,12 @@ if [ "$(id -u)" -ne 0 ]; then
   exit 1
 fi
 
+echo "[*] Ensuring 'community' repository is enabled..."
+if ! grep -q "/community" /etc/apk/repositories; then
+    release=$(awk -F. '{print $1 "." $2}' /etc/alpine-release)
+    echo "http://dl-cdn.alpinelinux.org/alpine/v$release/community" >> /etc/apk/repositories
+fi
+
 echo "[*] Updating package index..."
 apk update
 
@@ -19,7 +25,7 @@ apk add gnome-shell gnome-terminal gdm \
         xdg-desktop-portal-gtk flatpak \
         mesa mesa-dri-gallium
 
-echo "[*] Enabling system services..."
+echo "[*] Enabling essential system services..."
 rc-update add dbus
 rc-update add udev
 rc-update add NetworkManager
@@ -33,7 +39,7 @@ apk add bluez bluez-alsa gnome-bluetooth
 rc-update add bluetooth
 rc-service bluetooth start
 
-echo "[*] Setting up Flatpak + Flathub..."
+echo "[*] Setting up Flatpak and Flathub remote..."
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 echo "[*] Optional: Install Web Browser?"
@@ -121,5 +127,5 @@ select opt in "OBS" "None"; do
     esac
 done
 
-echo "[✓] Setup complete! Reboot the system to start GNOME with Wayland, PipeWire, Bluetooth, and Flatpak support."
+echo "[✓] Setup complete! Reboot the system to launch into GNOME + Wayland with full desktop functionality."
 
