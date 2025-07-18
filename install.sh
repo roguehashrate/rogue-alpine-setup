@@ -9,13 +9,6 @@ fi
 echo "[*] Updating package index..."
 apk update
 
-# Enable community repo if not already
-if ! grep -q "/community" /etc/apk/repositories; then
-  release=$(cut -d. -f1,2 /etc/alpine-release)
-  echo "https://dl-cdn.alpinelinux.org/alpine/v$release/community" >> /etc/apk/repositories
-  apk update
-fi
-
 # Auto-run alpine-desktop gnome if GNOME is not installed
 if ! command -v gnome-shell >/dev/null 2>&1; then
   echo "[*] GNOME not detected — installing via alpine-desktop..."
@@ -24,7 +17,6 @@ else
   echo "[*] GNOME already installed — skipping alpine-desktop."
 fi
 
-echo "[*] Removing default GNOME browsers (Firefox and Epiphany)..."
 apk del -q firefox epiphany || echo "[!] Some packages may not have been installed — skipping."
 
 echo "[*] Installing Flatpak and GNOME integration..."
