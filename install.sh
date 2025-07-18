@@ -9,6 +9,13 @@ fi
 echo "[*] Updating package index..."
 apk update
 
+# Enable community repo if not already
+if ! grep -q "/community" /etc/apk/repositories; then
+  release=$(cut -d. -f1,2 /etc/alpine-release)
+  echo "https://dl-cdn.alpinelinux.org/alpine/v$release/community" >> /etc/apk/repositories
+  apk update
+fi
+
 # Auto-run alpine-desktop gnome if GNOME is not installed
 if ! command -v gnome-shell >/dev/null 2>&1; then
   echo "[*] GNOME not detected — installing via alpine-desktop..."
@@ -17,7 +24,7 @@ else
   echo "[*] GNOME already installed — skipping alpine-desktop."
 fi
 
-echo "[*] Removing default system browsers (Firefox and Epiphany)..."
+echo "[*] Removing default GNOME browsers (Firefox and Epiphany)..."
 apk del -q firefox epiphany || echo "[!] Some packages may not have been installed — skipping."
 
 echo "[*] Installing Flatpak and GNOME integration..."
@@ -29,28 +36,12 @@ mkdir -p /var/lib/flatpak
 echo "[*] Adding Flathub remote..."
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
-echo "[*] Installing PipeWire, Bluetooth, and Network tools..."
+echo "[*] Installing PipeWire and Bluetooth support..."
 apk add pipewire pipewire-alsa pipewire-pulse wireplumber \
-        bluez bluez-alsa gnome-bluetooth \
-        networkmanager wpa_supplicant
+        bluez bluez-alsa gnome-bluetooth
 
-# Remove iwd if present (conflicts with wpa_supplicant)
-apk del iwd || true
-
-echo "[*] Enabling essential services..."
-rc-update add dbus
-rc-update add udev
 rc-update add bluetooth
-rc-update add networkmanager
-rc-update add wpa_supplicant
-rc-update add gdm
-
-rc-service dbus start
-rc-service udev start
 rc-service bluetooth start
-rc-service networkmanager start
-rc-service wpa_supplicant start
-rc-service gdm restart
 
 # Optional Web Browser
 echo
@@ -119,3 +110,4 @@ esac
 
 echo
 echo "[✓] Setup complete! Reboot to your GNOME environment."
+
