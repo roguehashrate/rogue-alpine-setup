@@ -1,4 +1,3 @@
-# 🐧 Rogue Alpine Setup
 
 <p align="center">
   <img src="/assets/logo.png" alt="Logo" width="400"/>
