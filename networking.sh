@@ -6,40 +6,47 @@ if [ "$(id -u)" -ne 0 ]; then
   exit 1
 fi
 
-echo "[*] Installing NetworkManager, WPA support, Bluetooth, PipeWire, and Polkit..."
+echo "[*] Installing networking and audio packages..."
 apk add networkmanager wpa_supplicant \
-        bluez bluez-alsa gnome-bluetooth \
         pipewire pipewire-alsa pipewire-pulse wireplumber \
         polkit polkit-gnome
 
-# Remove iwd to prevent conflicts with wpa_supplicant
+# Remove iwd to avoid conflicts
 apk del iwd || true
 
-echo "[*] Enabling essential services..."
+echo "[*] Enabling required services..."
 rc-update add dbus
 rc-update add udev
-rc-update add bluetooth
 rc-update add networkmanager
 rc-update add wpa_supplicant
 
-# Start services now
 rc-service dbus start
 rc-service udev start
-rc-service bluetooth start
 rc-service networkmanager start
 rc-service wpa_supplicant start
 
-# Ensure GDM and GNOME will start if not already done
-rc-update add gdm
-rc-service gdm restart
+echo "[*] Fixing 'unmanaged' NetworkManager issue..."
+
+# Reset /etc/network/interfaces to loopback only
+echo "auto lo" > /etc/network/interfaces
+echo "iface lo inet loopback" >> /etc/network/interfaces
+
+# Tell NetworkManager to manage all interfaces
+mkdir -p /etc/NetworkManager/conf.d
+cat <<EOF > /etc/NetworkManager/conf.d/10-managed.conf
+[main]
+plugins=keyfile
+
+[ifupdown]
+managed=true
+EOF
+
+# Restart to apply config
+rc-service networkmanager restart
 
 echo
-echo "[✓] Networking stack installed and running."
-echo "    ✔ Wi-Fi via NetworkManager (GNOME control center)"
-echo "    ✔ Bluetooth via GNOME Bluetooth"
-echo "    ✔ PipeWire for audio"
-echo "    ✔ Polkit agent for GNOME permissions"
-
+echo "[✓] NetworkManager is now managing your interfaces."
+echo "    ✔ Wi-Fi should be fully interactive in GNOME UI"
+echo "    ✔ Audio via PipeWire is active"
 echo
-echo "🔁 Please reboot to fully apply these changes."
-
+echo "🔁 Reboot the system to ensure all changes take full effect."
