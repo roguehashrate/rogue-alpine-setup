@@ -42,90 +42,71 @@ rc-service bluetooth start
 echo "[*] Setting up Flatpak and Flathub remote..."
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
+# Web Browser
+echo
 echo "[*] Optional: Install Web Browser?"
-select opt in "Firefox" "Brave" "None"; do
-    case $opt in
-        Firefox)
-            flatpak install -y flathub org.mozilla.firefox
-            break
-            ;;
-        Brave)
-            flatpak install -y flathub com.brave.Browser
-            break
-            ;;
-        None)
-            break
-            ;;
-    esac
-done
+echo "1) Firefox"
+echo "2) Brave"
+echo "3) None"
+printf "Enter choice [1-3]: "
+read opt
+case $opt in
+  1) flatpak install -y flathub org.mozilla.firefox ;;
+  2) flatpak install -y flathub com.brave.Browser ;;
+esac
 
+# Text Editor
+echo
 echo "[*] Optional: Install Text Editor?"
-select opt in "Vim" "Neovim" "Emacs" "None"; do
-    case $opt in
-        Vim)
-            apk add vim
-            break
-            ;;
-        Neovim)
-            apk add neovim
-            break
-            ;;
-        Emacs)
-            apk add emacs
-            break
-            ;;
-        None)
-            break
-            ;;
-    esac
-done
+echo "1) Vim"
+echo "2) Neovim"
+echo "3) Emacs"
+echo "4) None"
+printf "Enter choice [1-4]: "
+read opt
+case $opt in
+  1) apk add vim ;;
+  2) apk add neovim ;;
+  3) apk add emacs ;;
+esac
 
+# Terminal Emulator
+echo
 echo "[*] Optional: Install Terminal Emulator?"
-select opt in "Alacritty" "Kitty" "None"; do
-    case $opt in
-        Alacritty)
-            apk add alacritty
-            break
-            ;;
-        Kitty)
-            apk add kitty
-            break
-            ;;
-        None)
-            break
-            ;;
-    esac
-done
+echo "1) Alacritty"
+echo "2) Kitty"
+echo "3) None"
+printf "Enter choice [1-3]: "
+read opt
+case $opt in
+  1) apk add alacritty ;;
+  2) apk add kitty ;;
+esac
 
+# Image Tool
+echo
 echo "[*] Optional: Install Image Tool?"
-select opt in "Gimp" "Krita" "None"; do
-    case $opt in
-        Gimp)
-            flatpak install -y flathub org.gimp.GIMP
-            break
-            ;;
-        Krita)
-            flatpak install -y flathub org.kde.krita
-            break
-            ;;
-        None)
-            break
-            ;;
-    esac
-done
+echo "1) GIMP"
+echo "2) Krita"
+echo "3) None"
+printf "Enter choice [1-3]: "
+read opt
+case $opt in
+  1) flatpak install -y flathub org.gimp.GIMP ;;
+  2) flatpak install -y flathub org.kde.krita ;;
+esac
 
-echo "[*] Optional: Install OBS?"
-select opt in "OBS" "None"; do
-    case $opt in
-        OBS)
-            flatpak install -y flathub com.obsproject.Studio
-            break
-            ;;
-        None)
-            break
-            ;;
-    esac
-done
+# OBS
+echo
+echo "[*] Optional: Install OBS Studio?"
+echo "1) Yes"
+echo "2) No"
+printf "Enter choice [1-2]: "
+read opt
+case $opt in
+  1) flatpak install -y flathub com.obsproject.Studio ;;
+esac
 
-echo "[✓] Setup complete! Reboot the system to launch into GNOME with full audio, Bluetooth, networking, and Flatpak support."
+echo
+echo "[✓] Setup complete! Reboot the system to launch into GNOME with full desktop support."
 
