@@ -24,6 +24,10 @@ apk add pipewire pipewire-alsa pipewire-pulse wireplumber \
 rc-update add bluetooth
 rc-service bluetooth start
 
+echo "[*] Installing Flatpak and GNOME integration..."
+apk add flatpak xdg-desktop-portal xdg-desktop-portal-gtk \
+        gnome-software gnome-software-plugin-flatpak
+
 echo "[*] Setting up Flatpak and Flathub remote..."
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
