@@ -9,34 +9,34 @@ fi
 echo "[*] Updating package index..."
 apk update
 
-echo "[*] Installing GNOME and core desktop..."
-apk add gnome gnome-shell gnome-terminal gdm \
-        xdg-desktop-portal xdg-desktop-portal-gtk \
-        networkmanager network-manager-applet \
-        gnome-control-center gnome-software \
+echo "[*] Installing GNOME and core desktop environment..."
+apk add gnome-shell gnome-terminal gdm \
+        gnome-control-center gnome-settings-daemon \
+        gnome-backgrounds gnome-disk-utility \
+        gnome-keyring gnome-software \
         gvfs gvfs-afc gvfs-mtp gvfs-smb \
-        udisks2 flatpak
+        udisks2 networkmanager network-manager-applet \
+        xdg-desktop-portal-gtk flatpak \
+        mesa mesa-dri-gallium
 
-echo "[*] Enabling essential services..."
+echo "[*] Enabling system services..."
 rc-update add dbus
 rc-update add udev
 rc-update add NetworkManager
 rc-update add gdm
 
-echo "[*] Installing PipeWire audio and Bluetooth support..."
-apk add pipewire pipewire-alsa pipewire-pulse pipewire-jack \
-        wireplumber pulseaudio-ctl \
-        bluez bluez-deprecated bluez-alsa pulseaudio-utils \
-        gnome-bluetooth gnome-bluetooth-3.0 gnome-bluetooth-libs
+echo "[*] Installing PipeWire for audio routing..."
+apk add pipewire pipewire-alsa pipewire-pulse wireplumber
 
-echo "[*] Enabling Bluetooth service..."
+echo "[*] Installing Bluetooth support..."
+apk add bluez bluez-alsa gnome-bluetooth
 rc-update add bluetooth
 rc-service bluetooth start
 
 echo "[*] Setting up Flatpak + Flathub..."
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
-echo "[*] Optional: Install Browser?"
+echo "[*] Optional: Install Web Browser?"
 select opt in "Firefox" "Brave" "None"; do
     case $opt in
         Firefox)
@@ -91,27 +91,15 @@ select opt in "Alacritty" "Kitty" "None"; do
     esac
 done
 
-echo "[*] Optional: Install Image Manipulation Tool?"
+echo "[*] Optional: Install Image Tool?"
 select opt in "Gimp" "Krita" "None"; do
     case $opt in
         Gimp)
-            flatpak install -y org.gimp.GIMP
+            flatpak install -y flathub org.gimp.GIMP
             break
             ;;
         Krita)
-            flatpak install -y org.kde.krita
-            break
-            ;;
-        None)
-            break
-            ;;
-    esac
-
-echo "[*] Optional: Install OBS?"
-select opt in "OBS" "None"; do
-    case $opt in
-        OBS)
-            flatpak install -y com.obsproject.Studio
+            flatpak install -y flathub org.kde.krita
             break
             ;;
         None)
@@ -120,4 +108,18 @@ select opt in "OBS" "None"; do
     esac
 done
 
-echo "[✓] All done! You can now reboot to start your graphical environment."
+echo "[*] Optional: Install OBS?"
+select opt in "OBS" "None"; do
+    case $opt in
+        OBS)
+            flatpak install -y flathub com.obsproject.Studio
+            break
+            ;;
+        None)
+            break
+            ;;
+    esac
+done
+
+echo "[✓] Setup complete! Reboot the system to start GNOME with Wayland, PipeWire, Bluetooth, and Flatpak support."
+
