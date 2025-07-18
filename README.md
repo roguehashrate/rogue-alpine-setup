@@ -1,4 +1,3 @@
-
 ---
 
 # 🚀 Alpine GNOME Setup Script
