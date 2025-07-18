@@ -17,8 +17,6 @@ else
   echo "[*] GNOME already installed — skipping alpine-desktop."
 fi
 
-apk del -q firefox epiphany || echo "[!] Some packages may not have been installed — skipping."
-
 echo "[*] Installing Flatpak and GNOME integration..."
 apk add flatpak xdg-desktop-portal xdg-desktop-portal-gtk \
         gnome-software gnome-software-plugin-flatpak
