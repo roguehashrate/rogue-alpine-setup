@@ -102,4 +102,3 @@ reboot
 ## 📜 License
 
 MIT — use, fork, and modify freely. PRs welcome!
-```
