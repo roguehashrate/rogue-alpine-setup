@@ -56,7 +56,7 @@ cd rogue-alpine-setup
 ### 2. Make the scripts executable
 
 ```sh
-chmod +x install.sh networking.sh
+chmod +x install.sh networking.sh debloat.sh
 ```
 
 ### 3. Run the main install script
