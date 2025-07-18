@@ -1,5 +1,9 @@
 # 🐧 Rogue Alpine Setup
 
+<p align="center">
+  <img src="/assets/logo.png" alt="Logo" width="400"/>
+</p>
+
 A post-install script that transforms a fresh Alpine Linux system into a modern GNOME desktop — complete with audio, Bluetooth, Flatpak, and GUI-based network management.
 
 > ⚠️ This is intended to be run **after completing `setup-alpine`** on a new Alpine installation.
