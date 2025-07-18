@@ -1,15 +1,8 @@
-- ✅ Clear description of what the script does  
-- ✅ Step-by-step instructions for enabling the `community` repo  
-- ✅ Note to install `git`  
-- ✅ Simple usage guide  
-- ✅ Optional software list  
-- ✅ Licensing section  
 
 ---
 
 ### ✅ `README.md`
 
-```markdown
 # 🚀 Alpine GNOME Setup Script
 
 This is a post-install script that turns a fresh Alpine Linux installation into a complete GNOME desktop system — including Flatpak, audio (PipeWire), Bluetooth, and Wi-Fi support — with optional software installs like browsers, text editors, and creative tools.
