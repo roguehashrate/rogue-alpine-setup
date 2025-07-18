@@ -15,6 +15,8 @@ A post-install script that transforms a fresh Alpine Linux system into a modern 
 - **Flatpak** + Flathub integration
 - **NetworkManager** with full GNOME GUI integration
 - Optional GUI apps (prompted during install)
+- Optional debloat script to remove unwanted default software
+(I recommend removing the default firefox and installing the flatpak if you ever need DRM support in your browser)
 
 ---
 
