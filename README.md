@@ -1,103 +1,99 @@
+# 🐧 Rogue Alpine Setup
+
+A post-install script that transforms a fresh Alpine Linux system into a modern GNOME desktop — complete with audio, Bluetooth, Flatpak, and GUI-based network management.
+
+> ⚠️ This is intended to be run **after completing `setup-alpine`** on a new Alpine installation.
+> 🔒 **You must run all scripts as root.**
+
 ---
 
-# 🚀 Alpine GNOME Setup Script
+## ✅ Features
 
-This is a post-install script that turns a fresh Alpine Linux installation into a complete GNOME desktop system — including Flatpak, audio (PipeWire), Bluetooth, and Wi-Fi support — with optional software installs like browsers, text editors, and creative tools.
+- Full **GNOME Desktop** via `setup-desktop`
+- **PipeWire** audio routing
+- **Bluetooth** support
+- **Flatpak** + Flathub integration
+- **NetworkManager** with full GNOME GUI integration
+- Optional GUI apps (prompted during install)
 
 ---
 
-## 📋 Before You Begin
+## 📦 Requirements
 
-Before running this script, you **must enable the `community` repository** and install `git`:
+Before running the scripts:
 
-### 1. Enable the `community` repository
+1. **Enable the `community` repository**
 
-Some packages are only in the `community` repo.
-
-1. Open the APK repository list:
    ```sh
    vi /etc/apk/repositories
    ```
+   Remove the `#` from the line ending in `/community`.
 
-2. Uncomment the `community` line (remove `#`), for example:
-   ```
-   # https://dl-cdn.alpinelinux.org/alpine/v3.22/community
-   ```
+2. **Install `git`**
 
-3. Save and exit, then update the index:
    ```sh
-   apk update
+   apk add git
    ```
 
-### 2. Install `git`
+---
+
+## 🚀 Installation
+
+### 1. Clone the repository
 
 ```sh
-apk add git
+git clone https://github.com/roguehashrate/rogue-alpine-setup
+cd rogue-alpine-setup
 ```
 
----
-
-## 🔧 What This Script Does
-
-- Installs the full GNOME desktop via `setup-desktop gnome`
-- Removes default GNOME browsers (Firefox and Epiphany)
-- Installs Flatpak and Flathub
-- Adds PipeWire and WirePlumber for audio
-- Enables Bluetooth and Wi-Fi (via `wpa_supplicant`)
-- Starts all essential services (dbus, gdm, networkmanager, etc.)
-- Offers optional installs: browser, editor, terminal, image tools, OBS Studio
-
----
-
-## 💡 How to Use
-
-1. **Install Alpine normally using `setup-alpine`**
-2. **Reboot and log in as `root`**
-3. **Fetch and run the script**:
+### 2. Make the scripts executable
 
 ```sh
-git clone https://github.com/roguehashrate/rogue-alpine-setup.git
-cd rogue-alpine-setup
-chmod +x install.sh
+chmod +x install.sh networking.sh
+```
+
+### 3. Run the main install script
+
+```sh
 ./install.sh
 ```
 
-4. Follow the prompts
-5. When done, reboot:
+This will:
+- Install GNOME
+- Set up audio, Bluetooth, Flatpak
+- Remove default GNOME browsers
+- Prompt for installing common apps
+
+### 4. Run the networking script
+
+To ensure GNOME can manage Wi-Fi and network devices:
+
 ```sh
-reboot
+./networking.sh
 ```
 
----
-
-## 🧪 Features Verified to Work
-
-- GNOME session (Wayland) with login manager (GDM)
-- Flatpak support with Flathub remote
-- PipeWire audio visible in GNOME sound menu
-- Bluetooth management from GNOME settings
-- Wi-Fi using `wpa_supplicant` and NetworkManager
+This configures NetworkManager for proper user-level interaction and disables conflicting services.
 
 ---
 
-## 📦 Optional Software Offered
+## 🧩 Optional Apps (Prompted During Install)
 
-- **Web Browsers:** Firefox (Flatpak), Brave (Flatpak)
-- **Text Editors:** Vim, Neovim, Emacs
-- **Terminal Emulators:** Alacritty, Kitty
-- **Image Tools:** GIMP, Krita
-- **Streaming:** OBS Studio (Flatpak)
+You’ll be asked whether to install:
 
----
-
-## ⚠️ Notes
-
-- Flatpaks are installed system-wide as root (you can modify the script to use `--user` if preferred)
-- You must manually enable the `community` repo before starting
-- Requires a working network connection (Ethernet or pre-configured Wi-Fi)
+- Web Browsers: Firefox (Flatpak), Brave (Flatpak)
+- Text Editors: Vim, Neovim, Emacs
+- Terminal Emulators: Alacritty, Kitty
+- Image Editors: GIMP(Flatpak), Krita(Flatpak)
+- OBS Studio (Flatpak)
 
 ---
 
-## 📜 License
+## 📄 License
 
-MIT — use, fork, and modify freely. PRs welcome!
+MIT License — see `LICENSE` file.
+
+---
+
+## 🙌 Credits
+
+Built for those who want a **minimal Alpine Linux base** with the comfort of a **modern GNOME desktop**.
