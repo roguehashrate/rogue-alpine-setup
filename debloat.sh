@@ -7,7 +7,6 @@ fi
 
 echo "[*] Starting GNOME debloat process..."
 
-# Define removable apps
 apps_to_remove="
 firefox
 gnome-tour

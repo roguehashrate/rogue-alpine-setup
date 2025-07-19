@@ -33,7 +33,6 @@ apk add pipewire pipewire-alsa pipewire-pulse wireplumber \
 rc-update add bluetooth
 rc-service bluetooth start
 
-# Optional Web Browser
 echo
 echo "[*] Optional: Install Web Browser?"
 echo "1) Firefox (Flatpak)"
@@ -46,7 +45,6 @@ case "$opt" in
   2) flatpak install -y flathub com.brave.Browser ;;
 esac
 
-# Optional Text Editor
 echo
 echo "[*] Optional: Install Text Editor?"
 echo "1) Vim"
@@ -61,7 +59,6 @@ case "$opt" in
   3) apk add emacs ;;
 esac
 
-# Optional Terminal Emulator
 echo
 echo "[*] Optional: Install Terminal Emulator?"
 echo "1) Alacritty"
@@ -74,7 +71,6 @@ case "$opt" in
   2) apk add kitty ;;
 esac
 
-# Optional Image Tool
 echo
 echo "[*] Optional: Install Image Tool?"
 echo "1) GIMP"
@@ -87,7 +83,6 @@ case "$opt" in
   2) flatpak install -y flathub org.kde.krita ;;
 esac
 
-# Optional OBS
 echo
 echo "[*] Optional: Install OBS Studio?"
 echo "1) Yes"
