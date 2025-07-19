@@ -3,7 +3,7 @@
   <img src="/assets/logo.png" alt="Logo" width="300"/>
 </p>
 
-A post-install script that transforms a fresh Alpine Linux system into a modern GNOME desktop — complete with audio, Bluetooth, Flatpak, and GUI-based network management.
+A post-install script that gets your fresh Alpine Linux system into a GNOME desktop — giving a "Just works" experiance.
 
 > ⚠️ This is intended to be run **after completing `setup-alpine`** on a new Alpine installation.
 
@@ -50,6 +50,7 @@ Before running the scripts:
 
 ```sh
 git clone https://github.com/roguehashrate/rogue-alpine-setup
+
 cd rogue-alpine-setup
 ```
 
@@ -67,8 +68,7 @@ chmod +x install.sh networking.sh debloat.sh
 
 This will:
 - Install GNOME
-- Set up audio, Bluetooth, Flatpak
-- Remove default GNOME browsers
+- Set up Audio, Bluetooth, Flatpak
 - Prompt for installing common apps
 
 ### 4. Run the networking script
@@ -88,10 +88,11 @@ This configures NetworkManager for proper user-level interaction and disables co
 You’ll be asked whether to install:
 
 - Web Browsers: Firefox (Flatpak), Brave (Flatpak)
-- Text Editors: Vim, Neovim, Emacs
+- Text Editors: Vim, Neovim, Emacs, Nano, Micro
 - Terminal Emulators: Alacritty, Kitty
 - Image Editors: GIMP(Flatpak), Krita(Flatpak)
 - OBS Studio (Flatpak)
+- Timeshift (Backup Tool)
 
 ---
 
