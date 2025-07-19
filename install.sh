@@ -78,8 +78,8 @@ esac
 
 echo
 echo "[*] Optional: Install Image Manipulation Tool?"
-echo "1) GIMP"
-echo "2) Krita"
+echo "1) GIMP (Flatpak)"
+echo "2) Krita (Flatpak)"
 echo "3) None"
 printf "Enter choice [1-3]: "
 read opt
@@ -89,7 +89,7 @@ case "$opt" in
 esac
 
 echo
-echo "[*] Optional: Install OBS Studio?"
+echo "[*] Optional: Install OBS Studio (Flatpak)?"
 echo "1) Yes"
 echo "2) No"
 printf "Enter choice [1-2]: "
