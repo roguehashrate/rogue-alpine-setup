@@ -50,13 +50,18 @@ echo "[*] Optional: Install Text Editor?"
 echo "1) Vim"
 echo "2) Neovim"
 echo "3) Emacs"
-echo "4) None"
-printf "Enter choice [1-4]: "
+echo "4) Nano"
+echo "5) Micro"
+echo "6) None"
+printf "Enter choice [1-6]: "
 read opt
 case "$opt" in
   1) apk add vim ;;
   2) apk add neovim ;;
   3) apk add emacs ;;
+  4) apk add nano ;;
+  5) apk add micro ;;
+
 esac
 
 echo
@@ -72,7 +77,7 @@ case "$opt" in
 esac
 
 echo
-echo "[*] Optional: Install Image Tool?"
+echo "[*] Optional: Install Image Manipulation Tool?"
 echo "1) GIMP"
 echo "2) Krita"
 echo "3) None"
@@ -94,5 +99,15 @@ case "$opt" in
 esac
 
 echo
-echo "[✓] Setup complete! Reboot to your GNOME environment."
+echo "[*] Optional: Install Timeshift?"
+echo "1) Yes"
+echo "2) No"
+printf "Enter choice [1-2]: "
+read opt
+case "$opt" in
+  1) apk add timeshift ;;
+esac
+
+echo
+echo "[✓] Setup complete! Reboot or Run ./networking.sh next for GUI controls over WiFi/Bluetooth."
 
