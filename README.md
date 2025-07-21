@@ -3,7 +3,7 @@
   <img src="/assets/logo.png" alt="Logo" width="300"/>
 </p>
 
-A post-install script that gets your fresh Alpine Linux system into a GNOME desktop — giving a "Just works" experiance.
+A post-install script that gets your fresh Alpine Linux system into a GNOME desktop, giving a "just works" experience.
 
 > ⚠️ This is intended to be run **after completing `setup-alpine`** on a new Alpine installation.
 
