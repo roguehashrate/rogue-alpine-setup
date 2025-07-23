@@ -1,22 +1,89 @@
-MIT License
+# Rogue Pact License (RPL) v1
 
-Copyright (c) 2025 RogueHashrate
+_Last updated: 2025-07-22_
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the “Software”), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+_Created by: [RogueHashrate]_
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+---
 
-THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
 
+## 1. Purpose and Scope
+
+The Rogue Pact License (RPL) v1 is a free and open source license designed to ensure fairness, transparency, and responsibility among all users of the software. It allows unrestricted personal and private use, but requires openness and attribution when distributing binaries or modifications to others.
+
+---
+
+## 2. Grant of Rights
+
+You are granted a worldwide, royalty-free, non-exclusive license to use, copy, modify, and distribute this software and derivative works, subject to the following terms.
+
+---
+
+## 3. Source Code Availability
+
+If you distribute a **binary or executable version** of this software (original or modified), you must also make the complete and corresponding **source code** publicly available under the same license. The source code must be buildable by reasonable means and must match the binary being distributed.
+
+---
+
+## 4. Private Modifications
+
+You may modify this software for private use without any obligation to publish your modifications, provided that the modified version is not distributed to others outside your personal, organizational, or internal use.  
+If you distribute the modified version in any form (including compiled binaries or embedded in a product), you must also distribute the complete, corresponding source code under the terms of this license.
+
+---
+
+## 5. Attribution
+
+You must provide **appropriate credit** to the original author(s) when distributing this software or any derivative works. This includes:
+
+- Naming the original project and author(s) in documentation and/or within the software
+- Including a notice such as:  
+  > “Based on software originally created by [Author Name or Pseudonym  / Project Name].”
+
+You may not use the original author(s)’ names, project names, or branding for marketing, promotion, or endorsement without explicit written permission.
+
+---
+
+## 6. Equal Terms for All
+
+This license applies equally to all individuals and entities, including but not limited to corporations, governments, academic institutions, and non-profits.
+
+No entity may use this software in a manner that circumvents the obligations of this license. There are no exceptions based on commercial status, industry, or internal policy.
+
+---
+
+## 7. Modification and Redistribution
+
+You may modify this software for any purpose. If you choose to distribute your modified version, you must:
+
+- Clearly indicate that changes were made
+- Include the full modified source code under this same license
+- Retain this license in all copies and derivative works
+
+You may not impose additional restrictions or alter the license terms when redistributing.
+
+---
+
+## 8. Termination
+
+If you violate the terms of this license, your rights under it terminate automatically. Upon termination, you must cease all use, copying, and distribution of the software until compliance is restored. You may regain your rights under the license by resolving the violation in good faith.
+
+---
+
+## 9. Disclaimer of Warranty
+
+This software is provided “as is,” without warranty of any kind, express or implied. The authors disclaim all warranties, including but not limited to merchantability, fitness for a particular purpose, and noninfringement.
+
+---
+
+## 10. Limitation of Liability
+
+In no event shall the authors be liable for any claim, damages, or other liability, whether in an action of contract, tort, or otherwise, arising from the use of this software.
+
+---
+
+## 11. Optional Contributions Encouraged
+
+Although not required, users are encouraged to contribute bug fixes, improvements, or features back to the upstream project. Such contributions help foster a stronger, more sustainable community.
+
+---
