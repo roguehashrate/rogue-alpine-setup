@@ -98,4 +98,4 @@ You’ll be asked whether to install:
 
 ## 📄 License
 
-MIT License — see `LICENSE` file.
+RPL License — see `LICENSE` file.
