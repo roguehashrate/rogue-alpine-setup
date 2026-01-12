@@ -98,4 +98,4 @@ You’ll be asked whether to install:
 
 ## 📄 License
 
-RPL License — see `LICENSE` file.
+BSD 2-Clause — see `LICENSE` file.
