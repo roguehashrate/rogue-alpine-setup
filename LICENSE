@@ -1,21 +1,9 @@
-Rogue Pact License (RPL) v2
+Copyright <2026> <roguehashrate>
 
-Created by RogueHashrate, 12-17-2025
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 
-The Rogue Pact License is a pact for sharing code: open, transparent,
-and collaborative. It exists to express a way of working together,
-not to impose strict control.
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
 
-You are free to use, copy, modify, and distribute this software and
-derivative works for any purpose, including commercial use.
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
 
-If you redistribute this software or derivative works, acknowledgment
-of the original author is required.
-
-Sharing source code, publishing modifications, or contributing
-improvements is encouraged but optional. Private modifications do
-not need to be published.
-
-This pact applies equally to all individuals and organizations.
-
-The author may grant exceptions or alternative terms if requested.
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
